@@ -1,0 +1,181 @@
+{% extends "layout.html" %}
+{% block content %}
+<head>
+
+  <title>Kaalpanik ML</title>
+  <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:700, 600,500,400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="main.js"></script>
+
+</head>
+
+<body>
+    <style>
+        body {font-family: Arial;
+          }
+        
+        /* Style the tab */
+        .tab {
+           overflow: hidden; 
+          background-color:#181745;
+          text-align: center;
+          width: 100%;
+          padding-left: 320px;
+          padding-top: 30px;
+        }
+        
+        /* Style the buttons inside the tab */
+        .tab a {
+          
+          color: #ffff;
+          width: 60px;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 0.3s;
+          font-size: 35px;
+          
+          
+        }
+        
+        /* Change background color of buttons on hover */
+        .tab a:hover {
+          background-color: #ddd;
+        }
+        
+        /* Create an active/current tablink class */
+        .tab a.active {
+          background-color: #ccc;
+        }
+        .tablink{
+          background-color: inherit;
+          color:#181745;
+          float: left;
+          border: 10px;
+          outline: none;
+          cursor: pointer;
+          padding: 14px 16px;
+          transition: 0.3s;
+          font-size: 17px;
+        }
+        
+        .column {
+  float: left;
+  
+  
+}
+
+.left {
+  width: 20%;
+}
+
+.right {
+  width: 80%;
+  background: linear-gradient(to bottom left,#216e93,#21648a,#1f5881,#172d5b,#191c51);
+}
+.main {
+  /width: 80%;/
+  padding-left: 320px;
+  background: #ffffff;
+  border: none;
+}
+
+
+.header{
+  background-color: #ffff;
+  
+  padding-left: 320px;
+  padding-top: 2px;
+ 
+}
+.iframe-container{
+  border: none;
+}
+
+
+.side-nav{
+  width: 20%;
+}
+.date
+{
+  color: white;
+  float: right;
+  padding-right: 35px;
+  font-size: 35px;
+}
+</style>
+        
+       
+
+
+
+  
+
+  
+   
+      
+    <h2 align="center" class="header" >Energy Dashboard </h2>
+
+    
+    <br>
+
+       <div class="tab" width="100%">
+          <a href="{{ url_for('hour') }}" class="tablinks" target="graph">Daily</a>
+          <a href="{{ url_for('day') }}" class="tablinks" target="graph">Monthly</a>
+          <a href="{{ url_for('month') }}" class="tablinks" target="graph" >Yearly</a>
+          <span class="date">{{date}}</span>
+        </div>
+        
+        <div class="main">
+          
+        <div class="col-sm">
+            {% with name="graph" %}     
+            <iframe   name="graph" height="600px" width="100%" frameborder="0"></iframe>
+            {% endwith %}
+          </div>
+        </div>
+
+        
+      <!-- <div class="main">
+
+        <div class="widget">
+          <div class="title">Cost predicted</div>
+          <div class="chart">
+            
+              
+
+          </div>
+        </div>
+        </div> -->
+
+        <!-- <div class="widget">
+          <div class="title">Change in Cost</div>
+          <div class="chart"></div>
+        </div>
+
+        <div class="widget">
+          <div class="title">Active Appliances</div>
+          <div class="chart"></div>
+        </div> -->
+
+     
+
+  
+
+
+    
+  
+
+    
+</body>
+{% endblock %}

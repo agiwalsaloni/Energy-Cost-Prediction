@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+   .date
+{
+  color: white;
+  float: right;
+  padding-right: 35px;
+  font-size: 35px;
+}     
+</style>
+
+<h2 align="center" class="header" >Energy Dashboard </h2>
+
+<br>
+<br>
+
+   <div class="tab" width="100%">
+      <a href="{{ url_for('hourapp') }}" class="tablinks" target="graph">Today</a>
+      <a href="{{ url_for('dayapp') }}" class="tablinks" target="graph">Month</a>
+      <a href="{{ url_for('monthapp') }}" class="tablinks" target="graph" >Year</a>
+      <span class="date">{{date}}</span>
+    </div>
+    
+    <div class="colsm" >
+            {% with name="graph" %}     
+            <iframe name="graph" width="80%" height="800px" align="right"></iframe>
+            {% endwith %}
+        
+    </div>
+   
+{% endblock %}
+
+
+
